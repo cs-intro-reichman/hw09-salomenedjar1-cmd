@@ -36,17 +36,15 @@ public class LanguageModel {
     In in = new In(fileName);
     String window = "";
 
-    
+    // build first window
     for (int i = 0; i < windowLength; i++) {
         if (in.isEmpty()) return;
         window += in.readChar();
     }
 
-    String firstWindow = window; 
-
-    
+    // process entire text
     while (!in.isEmpty()) {
-        char nextChar = in.readChar();
+        char c = in.readChar();
 
         List probs = CharDataMap.get(window);
         if (probs == null) {
@@ -54,29 +52,14 @@ public class LanguageModel {
             CharDataMap.put(window, probs);
         }
 
-        probs.update(nextChar);
-        window = window.substring(1) + nextChar;
-    }
-
-    
-    for (int i = 0; i < windowLength; i++) {
-        char nextChar = firstWindow.charAt(i);
-
-        List probs = CharDataMap.get(window);
-        if (probs == null) {
-            probs = new List();
-            CharDataMap.put(window, probs);
-        }
-
-        probs.update(nextChar);
-        window = window.substring(1) + nextChar;
+        probs.update(c);
+        window = window.substring(1) + c;
     }
 
     for (String key : CharDataMap.keySet()) {
         calculateProbabilities(CharDataMap.get(key));
     }
 }
-
 
 
     // Computes and sets the probabilities (p and cp fields) of all the
