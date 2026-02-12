@@ -29,7 +29,10 @@ public class CharData {
 	}
 	
 	/** Returns a textual representation of this CharData object. */
-	public String toString() {
-		return "(" + chr + " " + count + " " + p + " " + cp + ")";
+	public String toString() 
+	{
+    	char out = (chr == ' ') ? '_' : chr;
+    	return "(" + out + " " + count + " " + p + " " + cp + ")";
 	}
+
 }
