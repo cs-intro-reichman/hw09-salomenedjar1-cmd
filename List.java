@@ -42,15 +42,17 @@ public class List {
     /** GIVE Textual representation of this list. */
     public String toString() 
     {
-        String result = "";
+        StringBuilder sb = new StringBuilder();
         Node current = first;
 
         while (current != null) 
         {
-            result += current.cp.toString();
-            current = current.next;
+            sb.append(current.cp);          
+            if (current.next != null) 
+                sb.append(" ");             
+        current = current.next;
         }
-    return result;
+        return sb.toString();
     }
 
 
