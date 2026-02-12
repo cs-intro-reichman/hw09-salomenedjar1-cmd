@@ -47,11 +47,14 @@ public class List {
 
     while (current != null) 
     {
-        sb.append(current.cp);   
+        sb.append(current.cp);          
+        if (current.next != null) sb.append(" ");  
         current = current.next;
     }
     return sb.toString();
 }
+
+
 
 
     /** Returns the index of the first CharData object in this list

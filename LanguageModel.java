@@ -134,13 +134,15 @@ public class LanguageModel {
     /** Returns a string representing the map of this language model. */
 	public String toString() 
     {
-		StringBuilder sb = new StringBuilder();
-
-        for (String key : CharDataMap.keySet()) 
-            sb.append(key).append(" : (").append(CharDataMap.get(key)).append(")\n");
-
-        return sb.toString();
+    StringBuilder sb = new StringBuilder();
+    for (String key : CharDataMap.keySet()) 
+        sb.append(key).append(" : ").append(CharDataMap.get(key)).append("\n");
+    
+    return sb.toString();
     }
+
+
+
     public static void main(String[] args) 
     {
 	int windowLength = Integer.parseInt(args[0]);
