@@ -121,7 +121,7 @@ public class LanguageModel {
         while (generated.length() < textLength) 
         {
             List probs = CharDataMap.get(window);
-            if (probs == null) 
+            if (probs == null || probs.getSize() == 0)
                 break;
 
             char nextChar = getRandomChar(probs);

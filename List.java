@@ -40,19 +40,19 @@ public class List {
     }
     
     /** GIVE Textual representation of this list. */
-    public String toString() 
+    public String toString()
     {
-        StringBuilder sb = new StringBuilder();
-        Node current = first;
+    StringBuilder sb = new StringBuilder();
+    Node current = first;
 
-        while (current != null) 
-        {
-            sb.append(current.cp);          
-            if (current.next != null) 
-                sb.append(" ");             
+    while (current != null)
+    {
+        sb.append(current.cp); 
+        if (current.next != null)
+            sb.append(" ");
         current = current.next;
-        }
-        return sb.toString();
+    }
+    return sb.toString();
     }
 
 
