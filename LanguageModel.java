@@ -54,6 +54,22 @@ public class LanguageModel {
         probs.update(nextChar);
         window = window.substring(1) + nextChar;
     }
+    
+    String firstWindow = window;
+
+    for (int i = 0; i < windowLength; i++) {
+    char nextChar = firstWindow.charAt(i);
+
+    List probs = CharDataMap.get(window);
+    if (probs == null) {
+        probs = new List();
+        CharDataMap.put(window, probs);
+    }
+
+    probs.update(nextChar);
+    window = window.substring(1) + nextChar;
+    }
+
 
     for (String key : CharDataMap.keySet()) {
         calculateProbabilities(CharDataMap.get(key));
@@ -132,12 +148,11 @@ public class LanguageModel {
 	public String toString() 
     {
     StringBuilder sb = new StringBuilder();
-    for (String key : CharDataMap.keySet()) 
+    for (String key : CharDataMap.keySet()) {
         sb.append(key).append(" : ").append(CharDataMap.get(key)).append("\n");
-    
+    }
     return sb.toString();
     }
-
 
 
     public static void main(String[] args) 

@@ -40,17 +40,18 @@ public class List {
     }
     
     /** GIVE Textual representation of this list. */
-    public String toString() 
-    {
+    public String toString() {
     StringBuilder sb = new StringBuilder();
-    Node current = first;
+    sb.append("(");
 
-    while (current != null) 
-    {
-        sb.append(current.cp);          
-        if (current.next != null) sb.append(" ");  
+    Node current = first;
+    while (current != null) {
+        sb.append(current.cp);            
+        if (current.next != null) sb.append(" "); 
         current = current.next;
     }
+
+    sb.append(")");
     return sb.toString();
 }
 
