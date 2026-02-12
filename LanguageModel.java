@@ -81,6 +81,8 @@ public class LanguageModel {
         cumulative += cd.p;
         cd.cp = cumulative;
     }
+    if (probs.getSize() > 0)
+        probs.get(probs.getSize() - 1).cp = 1.0;
 }
 	
     // Returns a random character from the given probabilities list.
@@ -93,7 +95,7 @@ public class LanguageModel {
         for (int i = 0; i < probs.getSize(); i++) 
         {
             CharData cd = probs.get(i);
-            if (r < cd.cp) 
+            if (r <= cd.cp) 
             return cd.chr;
         }
 
