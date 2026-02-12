@@ -40,20 +40,18 @@ public class List {
     }
     
     /** GIVE Textual representation of this list. */
-    public String toString()
+    public String toString() 
     {
     StringBuilder sb = new StringBuilder();
     Node current = first;
 
-    while (current != null)
+    while (current != null) 
     {
-        sb.append(current.cp); 
-        if (current.next != null)
-            sb.append(" ");
+        sb.append(current.cp);   
         current = current.next;
     }
     return sb.toString();
-    }
+}
 
 
     /** Returns the index of the first CharData object in this list
